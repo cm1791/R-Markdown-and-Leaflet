@@ -1,0 +1,35 @@
+---
+title: "R Markdown and Leaflet"
+output: html_document
+date: September 14, 2017 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction 
+
+Leaflet is one of the most popular Javascript libraries for creating interactive maps. The leaflet R package allows you to create your own leaflet maps without needing to know any Javascript. 
+
+## My Leaflet Map 
+
+Getting started with leaflet is easy. The leaflet() function creates a map widget that you can store in a variable so that you can modify the map later on. You can add features to the map using the pipe operator (%>%) just like in dplyr. The addTiles() function adds mapping data from Open Street Map.
+
+```{r}
+library(leaflet)
+my_map <- leaflet() %>% 
+  addTiles()
+my_map
+```
+
+## Add Markers 
+
+```{r}
+my_map <- my_map %>%
+  addMarkers(lat=12.079, lng=-12.2982,
+             popup="Mali")
+my_map
+```
+
+
